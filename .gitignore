@@ -12,6 +12,7 @@ yarn.lock
 dist/
 build/
 out/
+dist-installer/
 *.exe
 *.dmg
 *.pkg
