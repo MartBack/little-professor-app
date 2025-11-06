@@ -1,0 +1,24 @@
+{
+  "name": "little-professor-app",
+  "version": "0.1.0",
+  "description": "Educational math practice app inspired by the classic Little Professor toy",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "electron .",
+    "build": "tsc && electron-builder",
+    "build:win": "tsc && electron-builder --win",
+    "build:mac": "tsc && electron-builder --mac",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "education",
+    "math",
+    "electron",
+    "desktop-app"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
+
