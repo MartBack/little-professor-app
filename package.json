@@ -10,7 +10,8 @@
     "build:mac": "tsc && electron-builder --mac",
     "lint": "eslint src --ext .ts || echo 'Linter not configured'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "compile": "tsc"
   },
   "keywords": [
     "education",

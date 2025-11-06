@@ -17,6 +17,11 @@ function createWindow(): void {
   // Load HTML file from renderer directory
   const htmlPath = path.join(__dirname, '../../src/renderer/index.html');
   mainWindow.loadFile(htmlPath);
+  
+  // Open DevTools in development (remove in production)
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools();
+  }
 
   mainWindow.on('closed', () => {
     mainWindow = null;
