@@ -2,13 +2,15 @@
   "name": "little-professor-app",
   "version": "0.1.0",
   "description": "Educational math practice app inspired by the classic Little Professor toy",
-  "main": "dist/main.js",
+  "main": "dist/main/main.js",
   "scripts": {
-    "dev": "electron .",
+    "dev": "tsc && electron .",
     "build": "tsc && electron-builder",
     "build:win": "tsc && electron-builder --win",
     "build:mac": "tsc && electron-builder --mac",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src --ext .ts || echo 'Linter not configured'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "education",
@@ -18,7 +20,44 @@
   ],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {},
+  "build": {
+    "appId": "com.littleprofessor.app",
+    "productName": "Little Professor",
+    "directories": {
+      "output": "dist-installer"
+    },
+    "files": [
+      "dist/**/*",
+      "src/renderer/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "public.app-category.education"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
 }
-
