@@ -5,6 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Professor</title>
     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧮 Little Professor</h1>
+            <div class="score-display">
+                <div class="score-item">
+                    <span class="score-label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Correct:</span>
+                    <span id="correct">0</span> / <span id="total">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-controls">
+                <div class="control-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy (1-10)</option>
+                        <option value="medium" selected>Medium (1-50)</option>
+                        <option value="hard">Hard (1-100)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="operator">Operation:</label>
+                    <select id="operator">
+                        <option value="+">Addition (+)</option>
+                        <option value="-">Subtraction (−)</option>
+                        <option value="*">Multiplication (×)</option>
+                        <option value="/">Division (÷)</option>
+                        <option value="mixed" selected>Mixed</option>
+                    </select>
+                </div>
+                <button id="new-game-btn" class="btn btn-primary">New Game</button>
+            </div>
+
+            <div class="problem-container">
+                <div id="problem-display" class="problem-display">
+                    <div class="problem-text">
+                        <span id="operand1">?</span>
+                        <span id="operator-symbol">?</span>
+                        <span id="operand2">?</span>
+                        <span class="equals">=</span>
+                        <span id="answer-input-container">
+                            <input type="number" id="answer-input" placeholder="?" autofocus>
+                        </span>
+                    </div>
+                </div>
+                <div id="feedback" class="feedback"></div>
+            </div>
+
+            <div class="keypad-container">
+                <div class="keypad">
+                    <button class="key" data-value="7">7</button>
+                    <button class="key" data-value="8">8</button>
+                    <button class="key" data-value="9">9</button>
+                    <button class="key" data-value="4">4</button>
+                    <button class="key" data-value="5">5</button>
+                    <button class="key" data-value="6">6</button>
+                    <button class="key" data-value="1">1</button>
+                    <button class="key" data-value="2">2</button>
+                    <button class="key" data-value="3">3</button>
+                    <button class="key key-clear" data-action="clear">Clear</button>
+                    <button class="key" data-value="0">0</button>
+                    <button class="key key-submit" data-action="submit">✓</button>
+                </div>
+            </div>
+        </main>
+    </div>
     <script src="../dist/renderer/game.js"></script>
 </body>
 </html>
